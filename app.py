@@ -70,7 +70,7 @@ with tab1:
             
             # Show Results
             st.success(f"### Prediction: **{label.upper()}** (Confidence: {confidence*100:.1f}%)")
-            st.image(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB), caption="Detected Landmarks", use_container_width=True)
+          st.image(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB), caption="Detected Landmarks", use_column_width=True)
         else:
             st.error("No hand detected! Make sure your hand is fully in the frame.")
 
