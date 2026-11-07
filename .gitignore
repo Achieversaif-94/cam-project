@@ -1,1 +1,4 @@
 data/asl_alphabet_train/
+.idea/
+__pycache__/
+*.pyc
