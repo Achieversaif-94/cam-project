@@ -5,8 +5,6 @@ import mediapipe as mp
 from mediapipe.tasks import python
 from mediapipe.tasks.python import vision
 import joblib
-import os
-from PIL import Image
 from src.features import extract_features
 
 # --- Page Config ---
@@ -40,7 +38,7 @@ with tab1:
     # Streamlit camera input
     img_file = st.camera_input("Take a picture")
     
-       if img_file is not None:
+    if img_file is not None:
         # Convert to OpenCV format
         file_bytes = np.asarray(bytearray(img_file.read()), dtype=np.uint8)
         frame = cv2.imdecode(file_bytes, cv2.IMREAD_COLOR)
@@ -73,6 +71,7 @@ with tab1:
             st.image(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB), caption="Detected Landmarks", use_column_width=True)
         else:
             st.error("No hand detected! Make sure your hand is fully in the frame.")
+
 with tab2:
     st.header("Model Evaluation")
     st.write("This model was trained on the Kaggle ASL Alphabet Dataset.")
